@@ -1,0 +1,307 @@
+.plan-detail {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 0 4rem;
+}
+
+.plan-detail__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.plan-detail__breadcrumb a {
+  color: var(--accent-blue);
+  transition: var(--transition);
+}
+.plan-detail__breadcrumb a:hover { color: var(--text-primary); }
+.plan-detail__breadcrumb span { color: var(--text-muted); }
+
+/* Header */
+.plan-detail__header {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.plan-detail__header-color-bar {
+  height: 4px;
+  background: var(--plan-color, var(--accent-blue));
+}
+
+.plan-detail__header-content {
+  padding: 1.75rem 2rem;
+}
+
+.plan-detail__header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.plan-detail__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.plan-detail__type {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  padding: 0.2em 0.7em;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+}
+
+.plan-detail__status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2em 0.7em;
+  border-radius: 100px;
+}
+.plan-detail__status--active { background: #10b98118; color: #10b981; }
+.plan-detail__status--completed { background: #6366f118; color: #6366f1; }
+.plan-detail__status--overdue { background: #f43f5e18; color: #f43f5e; }
+
+.plan-detail__title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+
+.plan-detail__description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.plan-detail__delete-btn {
+  background: transparent;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  color: #f43f5e;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+.plan-detail__delete-btn:hover {
+  background: rgba(244, 63, 94, 0.1);
+}
+
+.plan-detail__dates {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+.plan-detail__dates-arrow { color: var(--text-muted); }
+
+/* Body layout */
+.plan-detail__body {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .plan-detail__body { grid-template-columns: 1fr; }
+}
+
+/* Cards */
+.plan-detail__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.plan-detail__left .plan-detail__card:last-child,
+.plan-detail__right .plan-detail__card:last-child {
+  margin-bottom: 0;
+}
+
+.plan-detail__card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Progress ring */
+.plan-detail__progress-ring-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.plan-detail__progress-ring {
+  width: 120px;
+  height: 120px;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.plan-detail__ring-pct {
+  font-family: var(--font-body);
+}
+
+.plan-detail__progress-text {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Task badge */
+.plan-detail__task-badge {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.15em 0.55em;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+}
+
+/* Add task form */
+.plan-detail__add-task {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.plan-detail__task-input {
+  flex: 1;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.9rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  outline: none;
+  transition: var(--transition);
+}
+.plan-detail__task-input:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+.plan-detail__task-input::placeholder { color: var(--text-muted); }
+
+.plan-detail__priority-select {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.6rem;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  outline: none;
+}
+
+/* Task list */
+.plan-detail__task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.plan-detail__task {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.plan-detail__task:hover { border-color: var(--border-hover); }
+.plan-detail__task--done { opacity: 0.6; }
+.plan-detail__task--done .plan-detail__task-title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.plan-detail__task-check {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border: 2px solid var(--border-hover);
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.plan-detail__task--done .plan-detail__task-check {
+  background: var(--check-color, var(--accent-blue));
+  border-color: var(--check-color, var(--accent-blue));
+}
+
+.plan-detail__task-title {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.plan-detail__task-priority {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15em 0.55em;
+  border-radius: 100px;
+  text-transform: capitalize;
+}
+
+.plan-detail__no-tasks {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-muted);
+}
+.plan-detail__no-tasks span { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+
+/* Skeleton */
+.plan-detail__skeleton-header {
+  height: 180px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  animation: shimmer 1.5s infinite;
+  margin-bottom: 1.5rem;
+}
+.plan-detail__skeleton-body {
+  height: 400px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
