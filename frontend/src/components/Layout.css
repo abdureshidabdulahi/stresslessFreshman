@@ -79,12 +79,12 @@
 
 .sidebar__nav-item:hover {
   background: var(--bg-card);
-  color: var(--text-primary);
+  color: var(--b-white);
 }
 
 .sidebar__nav-item--active {
   background: rgba(59, 130, 246, 0.12);
-  color: var(--accent-blue);
+  color: var(--b-white);
   box-shadow: inset 2px 0 0 var(--accent-blue);
 }
 
