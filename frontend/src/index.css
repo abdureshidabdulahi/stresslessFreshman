@@ -1,18 +1,18 @@
 :root {
-  --bg-primary: #381710;
-  --bg-secondary: #622f21;
-  --bg-card: #723721;
-  --bg-card-hover: #884320;
-  --border: rgba(99, 179, 237, 0.12);
-  --border-hover: rgba(99, 179, 237, 0.25);
+  --bg-primary: #aa5c24;
+  --bg-secondary: #c5792d;
+  --bg-card: #d38931;
+  --bg-card-hover: #e0ad64;
+  --border: rgb(170, 92, 36,0.12);
+  --border-hover: rgb(170, 92, 36,0.25);
   --accent-blue: #3b82f6;
-  --accent-indigo: #6366f1;
+  --accent-indigo: #723721;
   --accent-emerald: #10b981;
   --accent-amber: #f59e0b;
   --accent-rose: #f43f5e;
-  --text-primary: #f0f4ff;
-  --text-secondary: #94a3c4;
-  --text-muted: #546484;
+  --text-primary: #381710;
+  --text-secondary: #723721;
+  --text-muted: #723721;
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
   --radius-sm: 8px;
