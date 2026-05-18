@@ -33,7 +33,7 @@ export default function Layout() {
       {/* Sidebar */}
       <aside className={`sidebar ${sidebarOpen ? 'sidebar--open' : ''}`}>
         <div className="sidebar__logo">
-          <span className="sidebar__logo-icon">✦</span>
+          <span className="sidebar__logo-icon">🧘</span>
           <div className="sidebar__logo-text">
             <span className="sidebar__logo-main">StressLess</span>
             <span className="sidebar__logo-sub">Freshman</span>

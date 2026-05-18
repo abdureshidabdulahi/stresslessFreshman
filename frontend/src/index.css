@@ -1,9 +1,11 @@
 :root {
+  --b-white:#f4e7cd;
   --bg-primary: #aa5c24;
   --bg-secondary: #c5792d;
   --bg-card: #d38931;
   --bg-card-hover: #e0ad64;
   --border: rgb(170, 92, 36,0.12);
+  --border-2:#723721;
   --border-hover: rgb(170, 92, 36,0.25);
   --accent-blue: #3b82f6;
   --accent-indigo: #723721;
