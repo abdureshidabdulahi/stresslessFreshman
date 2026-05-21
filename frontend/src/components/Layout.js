@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { to: '/dashboard', icon: '⊞', label: 'Dashboard' },
   { to: '/plans', icon: '📋', label: 'My Plans' },
   { to: '/learn', icon: '📚', label: 'Learn & Grow' },
+  { to: '/chat', icon: '🤖', label: 'AI Chat' },
 ];
 
 export default function Layout() {

@@ -12,6 +12,7 @@ import PlansPage from './pages/PlansPage';
 import PlanDetailPage from './pages/PlanDetailPage';
 import ContentPage from './pages/ContentPage';
 import ArticlePage from './pages/ArticlePage';
+import ChatPage from './pages/ChatPage';
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
@@ -35,6 +36,7 @@ function AppRoutes() {
         <Route path="/plans/:id" element={<PlanDetailPage />} />
         <Route path="/learn" element={<ContentPage />} />
         <Route path="/learn/:id" element={<ArticlePage />} />
+        <Route path="/chat" element={<ChatPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
