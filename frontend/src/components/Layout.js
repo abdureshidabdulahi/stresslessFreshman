@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet, NavLink, useNavigate } from 'react-router-dom';
+import { Outlet, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Layout.css';
 
@@ -13,7 +13,9 @@ const NAV_ITEMS = [
 export default function Layout() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const isChatPage = location.pathname === '/chat';
 
   const handleLogout = () => {
     logout();
@@ -90,7 +92,7 @@ export default function Layout() {
           </div>
         </header>
 
-        <main className="layout__content">
+        <main className={`layout__content ${isChatPage ? 'layout__content--full' : ''}`}>
           <Outlet />
         </main>
       </div>

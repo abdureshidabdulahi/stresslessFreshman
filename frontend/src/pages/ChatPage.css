@@ -1,6 +1,7 @@
 /* ── Layout ─────────────────────────────────────────────────────────────── */
 .chat-page {
   display: flex;
+  width: 100%;
   height: calc(100vh - 64px);
   overflow: hidden;
   position: relative;
@@ -11,13 +12,13 @@
 .chat-sidebar {
   width: 280px;
   min-width: 280px;
-  background: var(--bg-secondary);
+  background: var(--text-primary);
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   height: 100%;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 50;
+  z-index: 10;
 }
 
 .chat-sidebar__header {
@@ -625,11 +626,11 @@
 @media (max-width: 768px) {
   .chat-sidebar {
     position: fixed;
-    top: 0;
+    top: 64px;
     left: 0;
-    height: 100vh;
+    height: calc(100vh - 64px);
     transform: translateX(-100%);
-    z-index: 200;
+    z-index: 40;
     box-shadow: var(--shadow-lg);
   }
   .chat-sidebar--open {
@@ -638,9 +639,12 @@
   .chat-sidebar-overlay {
     display: block;
     position: fixed;
-    inset: 0;
+    top: 64px;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background: rgba(0,0,0,0.5);
-    z-index: 199;
+    z-index: 39;
   }
   .chat-header__menu-btn {
     display: flex;

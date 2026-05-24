@@ -224,6 +224,11 @@
   width: 100%;
 }
 
+.layout__content--full {
+  max-width: none;
+  padding: 0;
+}
+
 .sidebar-overlay {
   display: none;
 }
@@ -257,5 +262,9 @@
 
   .layout__content {
     padding: 20px 16px;
+  }
+
+  .layout__content--full {
+    padding: 0;
   }
 }
