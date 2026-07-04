@@ -8,16 +8,36 @@ const COLORS = [
   '#85a3ff', '#b3c8ff', '#d5e2ff', '#e8efff',
 ];
 
+const calculateEndDate = (startDate, planType) => {
+  const start = new Date(startDate);
+  const end = new Date(start);
+  
+  switch (planType) {
+    case 'daily':
+      end.setDate(end.getDate() + 1); // 24 hours (1 day)
+      break;
+    case 'weekly':
+      end.setDate(end.getDate() + 7); // 7 days
+      break;
+    case 'monthly':
+      end.setDate(end.getDate() + 30); // 30 days
+      break;
+    default:
+      end.setDate(end.getDate() + 1);
+  }
+  
+  return end.toISOString().split('T')[0];
+};
+
 const defaultForm = () => {
   const today = new Date();
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
+  const todayString = today.toISOString().split('T')[0];
   return {
     title: '',
     description: '',
     type: 'daily',
-    startDate: today.toISOString().split('T')[0],
-    endDate: tomorrow.toISOString().split('T')[0],
+    startDate: todayString,
+    endDate: calculateEndDate(todayString, 'daily'),
     color: '#0000ff',
     tasks: [],
   };
@@ -44,7 +64,17 @@ export default function PlanModal({ onClose, onSuccess, editPlan }) {
   }, [editPlan]);
 
   const handleChange = (e) => {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setForm((f) => {
+      const updatedForm = { ...f, [name]: value };
+      
+      // Auto-calculate end date when type or startDate changes
+      if (name === 'type' || name === 'startDate') {
+        updatedForm.endDate = calculateEndDate(updatedForm.startDate, updatedForm.type);
+      }
+      
+      return updatedForm;
+    });
   };
 
   const addTask = () => {
