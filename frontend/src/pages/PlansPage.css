@@ -1,5 +1,6 @@
 .plans-page {
   max-width: 1100px;
+  margin: 0 auto;
 }
 
 .plans-page__header {
@@ -160,8 +161,8 @@
 }
 
 .plan-card__delete:hover {
-  background: rgba(244, 63, 94, 0.12);
-  color: var(--accent-rose);
+  background: rgba(86, 114, 255, 0.12);
+  color: var(--accent-indigo);
 }
 
 .plan-card__title {

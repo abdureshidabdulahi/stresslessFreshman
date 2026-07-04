@@ -53,7 +53,7 @@
 .content-page__cat-btn--active {
   background: var(--cat-color, var(--accent-blue));
   border-color: var(--cat-color, var(--accent-blue));
-  color: #fff;
+  color: var(--text-primary);
 }
 
 /* Sections */
@@ -103,7 +103,7 @@
 }
 
 .article-card--featured {
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(99, 102, 241, 0.04) 100%);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(86, 114, 255, 0.04) 100%);
 }
 
 .article-card__color-bar {

@@ -4,8 +4,8 @@ import API from '../utils/api';
 import './PlanModal.css';
 
 const COLORS = [
-  '#3b82f6', '#6366f1', '#10b981', '#f59e0b',
-  '#f43f5e', '#8b5cf6', '#06b6d4', '#ec4899',
+  '#0000ff', '#0c11ff', '#2f43ff', '#5672ff',
+  '#85a3ff', '#b3c8ff', '#d5e2ff', '#e8efff',
 ];
 
 const defaultForm = () => {
@@ -18,7 +18,7 @@ const defaultForm = () => {
     type: 'daily',
     startDate: today.toISOString().split('T')[0],
     endDate: tomorrow.toISOString().split('T')[0],
-    color: '#3b82f6',
+    color: '#0000ff',
     tasks: [],
   };
 };
@@ -90,7 +90,7 @@ export default function PlanModal({ onClose, onSuccess, editPlan }) {
     }
   };
 
-  const priorityColors = { low: '#10b981', medium: '#f59e0b', high: '#f43f5e' };
+  const priorityColors = { low: '#b3c8ff', medium: '#85a3ff', high: '#5672ff' };
 
   return (
     <div className="modal-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>

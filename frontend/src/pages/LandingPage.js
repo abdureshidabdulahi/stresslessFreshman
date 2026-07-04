@@ -7,19 +7,19 @@ const FEATURES = [
     icon: '📋',
     title: 'Smart Planning',
     desc: 'Create daily, weekly, and monthly plans with task tracking and deadline countdowns.',
-    color: '#3b82f6',
+    color: '#85a3ff',
   },
   {
     icon: '⏱️',
     title: 'Live Countdowns',
     desc: 'Never miss a deadline. See exactly how much time remains for every plan.',
-    color: '#10b981',
+    color: '#5672ff',
   },
   {
     icon: '📚',
     title: 'Learning Library',
     desc: 'Evidence-based articles on motivation, hard work, and building academic success.',
-    color: '#f59e0b',
+    color: '#2f43ff',
   },
 ];
 

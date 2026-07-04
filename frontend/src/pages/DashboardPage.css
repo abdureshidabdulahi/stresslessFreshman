@@ -1,5 +1,6 @@
 .dashboard {
   max-width: 1100px;
+  margin: 0 auto;
 }
 
 .dashboard__greeting {
@@ -205,17 +206,17 @@
 }
 
 .dashboard__deadline-status--active {
-  background: rgba(16, 185, 129, 0.12);
+  background: rgba(179, 200, 255, 0.18);
   color: var(--accent-emerald);
 }
 
 .dashboard__deadline-status--overdue {
-  background: rgba(244, 63, 94, 0.12);
+  background: rgba(232, 239, 255, 0.18);
   color: var(--accent-rose);
 }
 
 .dashboard__deadline-status--completed {
-  background: rgba(99, 102, 241, 0.12);
+  background: rgba(86, 114, 255, 0.12);
   color: var(--accent-indigo);
 }
 

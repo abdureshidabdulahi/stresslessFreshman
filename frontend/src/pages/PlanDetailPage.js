@@ -6,9 +6,9 @@ import CountdownTimer from '../components/CountdownTimer';
 import './PlanDetailPage.css';
 
 const PRIORITY_COLORS = {
-  low: '#10b981',
-  medium: '#f59e0b',
-  high: '#f43f5e',
+  low: '#b3c8ff',
+  medium: '#85a3ff',
+  high: '#5672ff',
 };
 
 export default function PlanDetailPage() {
@@ -103,7 +103,7 @@ export default function PlanDetailPage() {
 
       {/* Header */}
       <div className="plan-detail__header" style={{ '--plan-color': plan.color }}>
-        <div className="plan-detail__header-color-bar" />
+        
         <div className="plan-detail__header-content">
           <div className="plan-detail__header-top">
             <div>

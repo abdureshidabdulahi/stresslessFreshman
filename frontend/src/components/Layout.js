@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Layout.css';
@@ -16,6 +16,10 @@ export default function Layout() {
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const isChatPage = location.pathname === '/chat';
+
+  useEffect(() => {
+    setSidebarOpen(false);
+  }, [location.pathname]);
 
   const handleLogout = () => {
     logout();
@@ -80,6 +84,7 @@ export default function Layout() {
             className="layout__menu-btn"
             onClick={() => setSidebarOpen(!sidebarOpen)}
             aria-label="Toggle menu"
+            aria-expanded={sidebarOpen}
           >
             <span />
             <span />

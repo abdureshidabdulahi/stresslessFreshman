@@ -72,9 +72,9 @@
   padding: 0.2em 0.7em;
   border-radius: 100px;
 }
-.plan-detail__status--active { background: #10b98118; color: #10b981; }
-.plan-detail__status--completed { background: #6366f118; color: #6366f1; }
-.plan-detail__status--overdue { background: #f43f5e18; color: #f43f5e; }
+.plan-detail__status--active { background: rgba(132, 163, 255, 0.18); color: var(--accent-blue); }
+.plan-detail__status--completed { background: rgba(86, 114, 255, 0.18); color: var(--accent-indigo); }
+.plan-detail__status--overdue { background: rgba(232, 239, 255, 0.18); color: var(--accent-rose); }
 
 .plan-detail__title {
   font-family: var(--font-display);
@@ -91,9 +91,9 @@
 }
 
 .plan-detail__delete-btn {
-  background: transparent;
-  border: 1px solid rgba(244, 63, 94, 0.3);
-  color: #f43f5e;
+  background: var(--bg-primary);
+  border: 1px solid rgba(86, 114, 255, 0.3);
+  color: var(--accent-indigo);
   padding: 0.45rem 1rem;
   border-radius: var(--radius-sm);
   font-size: 0.82rem;
@@ -102,7 +102,7 @@
   transition: var(--transition);
 }
 .plan-detail__delete-btn:hover {
-  background: rgba(244, 63, 94, 0.1);
+  background:black;
 }
 
 .plan-detail__dates {
@@ -251,10 +251,10 @@
   flex-shrink: 0;
   border: 2px solid var(--border-hover);
   border-radius: 6px;
-  background: transparent;
+  background: var(--accent-amber);
   cursor: pointer;
   font-size: 0.75rem;
-  color: #fff;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -35,10 +35,10 @@ export default function ArticlePage() {
   if (!article) return null;
 
   const catColor = {
-    motivation: '#f59e0b',
-    'hard-work': '#10b981',
-    results: '#6366f1',
-  }[article.category] || '#3b82f6';
+    motivation: '#5672ff',
+    'hard-work': '#2f43ff',
+    results: '#85a3ff',
+  }[article.category] || '#0000ff';
 
   // Render markdown-like bold and paragraphs
   const renderContent = (text) => {

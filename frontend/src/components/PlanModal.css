@@ -1,7 +1,7 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 255, 0.65);
   backdrop-filter: blur(6px);
   z-index: 1000;
   display: flex;
@@ -137,8 +137,8 @@
 }
 
 .modal__color-btn--selected {
-  border-color: #fff;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+  border-color: var(--text-primary);
+  box-shadow: 0 0 0 2px rgba(232, 239, 255, 0.4);
   transform: scale(1.1);
 }
 
@@ -212,8 +212,8 @@
 }
 
 .modal__task-remove:hover {
-  background: rgba(244, 63, 94, 0.1);
-  color: var(--accent-rose);
+  background: rgba(86, 114, 255, 0.12);
+  color: var(--accent-indigo);
 }
 
 .modal__footer {
