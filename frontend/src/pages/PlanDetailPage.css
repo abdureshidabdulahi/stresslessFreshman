@@ -133,7 +133,6 @@
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  /* width: fit-content; */
 }
 
 .plan-detail__left .plan-detail__card:last-child,
