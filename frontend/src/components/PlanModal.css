@@ -147,6 +147,12 @@
   gap: 8px;
 }
 
+.modal__task-input--error {
+  border: 1px solid var(--accent-rose);
+  border-radius: var(--radius-md);
+  padding: 6px;
+}
+
 .modal__task-input input {
   flex: 1;
   padding: 9px 12px;

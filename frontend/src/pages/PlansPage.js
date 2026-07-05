@@ -175,6 +175,7 @@ export default function PlansPage() {
       {modalOpen && (
         <PlanModal
           onClose={() => { setModalOpen(false); setEditPlan(null); }}
+          defaultType={typeFilter || 'daily'}
           onSuccess={handleModalSuccess}
           editPlan={editPlan}
         />

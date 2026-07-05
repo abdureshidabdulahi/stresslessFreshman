@@ -43,11 +43,12 @@ const defaultForm = () => {
   };
 };
 
-export default function PlanModal({ onClose, onSuccess, editPlan }) {
+export default function PlanModal({ onClose, onSuccess, editPlan, defaultType = 'daily' }) {
   const [form, setForm] = useState(defaultForm);
   const [taskInput, setTaskInput] = useState('');
   const [taskPriority, setTaskPriority] = useState('medium');
   const [submitting, setSubmitting] = useState(false);
+  const [taskError, setTaskError] = useState(false);
 
   useEffect(() => {
     if (editPlan) {
@@ -62,6 +63,21 @@ export default function PlanModal({ onClose, onSuccess, editPlan }) {
       });
     }
   }, [editPlan]);
+
+  // If there's no editPlan, update the form type when defaultType changes
+  useEffect(() => {
+    if (!editPlan) {
+      setForm((f) => {
+        const start = f.startDate || new Date().toISOString().split('T')[0];
+        const type = defaultType || 'daily';
+        return {
+          ...f,
+          type,
+          endDate: calculateEndDate(start, type),
+        };
+      });
+    }
+  }, [defaultType, editPlan]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -86,6 +102,7 @@ export default function PlanModal({ onClose, onSuccess, editPlan }) {
     }));
     setTaskInput('');
     setTaskPriority('medium');
+    setTaskError(false);
   };
 
   const removeTask = (index) => {
@@ -95,6 +112,7 @@ export default function PlanModal({ onClose, onSuccess, editPlan }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.title.trim()) { toast.error('Title is required'); return; }
+    if (!form.tasks || form.tasks.length === 0) { setTaskError(true); toast.error('Please add at least one task'); return; }
     if (new Date(form.endDate) <= new Date(form.startDate)) {
       toast.error('End date must be after start date');
       return;
@@ -211,7 +229,7 @@ export default function PlanModal({ onClose, onSuccess, editPlan }) {
             {/* Tasks */}
             <div className="modal__group">
               <label>Tasks ({form.tasks.length})</label>
-              <div className="modal__task-input">
+              <div className={`modal__task-input ${taskError ? 'modal__task-input--error' : ''}`}>
                 <input
                   value={taskInput}
                   onChange={(e) => setTaskInput(e.target.value)}
