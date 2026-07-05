@@ -55,19 +55,19 @@ export default function DashboardPage() {
 
       {/* Stats */}
       <div className="dashboard__stats">
-        <Link to="/plans" className="dashboard__stat-card dashboard__stat-card--blue">
+        <Link to="/plan-overview" className="dashboard__stat-card dashboard__stat-card--blue">
           <div className="dashboard__stat-value">{plans.length}</div>
           <div className="dashboard__stat-label">Total Plans</div>
         </Link>
-        <Link to="/plans?status=active" className="dashboard__stat-card dashboard__stat-card--emerald">
+        <Link to="/plan-overview?status=active" className="dashboard__stat-card dashboard__stat-card--emerald">
           <div className="dashboard__stat-value">{activePlans.length}</div>
           <div className="dashboard__stat-label">Active</div>
         </Link>
-        <Link to="/plans?status=completed" className="dashboard__stat-card dashboard__stat-card--amber">
+        <Link to="/plan-overview?status=completed" className="dashboard__stat-card dashboard__stat-card--amber">
           <div className="dashboard__stat-value">{completedPlans.length}</div>
           <div className="dashboard__stat-label">Completed</div>
         </Link>
-        <Link to="/plans?status=overdue" className="dashboard__stat-card dashboard__stat-card--rose">
+        <Link to="/plan-overview?status=overdue" className="dashboard__stat-card dashboard__stat-card--rose">
           <div className="dashboard__stat-value">{overduePlans.length}</div>
           <div className="dashboard__stat-label">Overdue</div>
         </Link>

@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import PlansPage from './pages/PlansPage';
+import PlanOverviewPage from './pages/PlanOverviewPage';
 import PlanDetailPage from './pages/PlanDetailPage';
 import ContentPage from './pages/ContentPage';
 import ArticlePage from './pages/ArticlePage';
@@ -34,6 +35,7 @@ function AppRoutes() {
         <Route index element={<Navigate to="/dashboard" replace />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/plans" element={<PlansPage />} />
+        <Route path="/plan-overview" element={<PlanOverviewPage />} />
         <Route path="/plans/:id" element={<PlanDetailPage />} />
         <Route path="/learn" element={<ContentPage />} />
         <Route path="/learn/:id" element={<ArticlePage />} />
