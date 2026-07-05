@@ -3,12 +3,6 @@ import { Link } from 'react-router-dom';
 import API from '../utils/api';
 import './ContentPage.css';
 
-const CATEGORY_ICONS = {
-  motivation: '🔥',
-  'hard-work': '💪',
-  results: '🏆',
-};
-
 export default function ContentPage() {
   const [articles, setArticles] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -18,7 +12,7 @@ export default function ContentPage() {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const params = activeCategory ? `?category=${activeCategory}` : '';
+        const params = activeCategory ? `?category=${encodeURIComponent(activeCategory)}` : '';
         const { data } = await API.get(`/content${params}`);
         setArticles(data.articles);
         if (data.categories) setCategories(data.categories);
@@ -33,6 +27,7 @@ export default function ContentPage() {
 
   const featured = articles.filter((a) => a.featured);
   const rest = articles.filter((a) => !a.featured);
+  const getCategory = (categoryName) => categories.find((cat) => cat.id === categoryName);
 
   return (
     <div className="content-page animate-fade-in">
@@ -59,7 +54,7 @@ export default function ContentPage() {
             style={{ '--cat-color': cat.color }}
             onClick={() => { setLoading(true); setActiveCategory(cat.id); }}
           >
-            <span>{CATEGORY_ICONS[cat.id] || '📖'}</span>
+            <span>{cat.icon}</span>
             {cat.label}
           </button>
         ))}
@@ -83,7 +78,12 @@ export default function ContentPage() {
               <h2 className="content-page__section-title">Featured</h2>
               <div className="content-page__featured-grid">
                 {featured.map((article) => (
-                  <ArticleCard key={article.id} article={article} featured />
+                  <ArticleCard
+                    key={article.id}
+                    article={article}
+                    category={getCategory(article.category)}
+                    featured
+                  />
                 ))}
               </div>
             </section>
@@ -95,7 +95,11 @@ export default function ContentPage() {
               )}
               <div className="content-page__grid">
                 {(activeCategory ? articles : rest).map((article) => (
-                  <ArticleCard key={article.id} article={article} />
+                  <ArticleCard
+                    key={article.id}
+                    article={article}
+                    category={getCategory(article.category)}
+                  />
                 ))}
               </div>
             </section>
@@ -106,12 +110,9 @@ export default function ContentPage() {
   );
 }
 
-function ArticleCard({ article, featured = false }) {
-  const catColor = {
-    motivation: '#5672ff',
-    'hard-work': '#2f43ff',
-    results: '#85a3ff',
-  }[article.category] || '#0000ff';
+function ArticleCard({ article, category, featured = false }) {
+  const catColor = category?.color || '#5672ff';
+  const catIcon = category?.icon || '📖';
 
   return (
     <Link
@@ -123,7 +124,7 @@ function ArticleCard({ article, featured = false }) {
       <div className="article-card__content">
         <div className="article-card__meta">
           <span className="article-card__category">
-            {CATEGORY_ICONS[article.category]} {article.category.replace('-', ' ')}
+            {catIcon} {article.category}
           </span>
           <span className="article-card__read-time">{article.readTime}</span>
         </div>
