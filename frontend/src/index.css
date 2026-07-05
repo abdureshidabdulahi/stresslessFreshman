@@ -3,7 +3,7 @@
   --bg-primary: #0c11ff;
   --bg-secondary: #5672ff;
   --bg-card: #85a3ff;
-  --bg-card-hover: #5672ff;
+  --bg-card-hover: rgba(86, 114, 255, 0.25);
   --border: rgba(86, 114, 255, 0.18);
   --border-2: #2f43ff;
   --border-hover: rgba(86, 114, 255, 0.25);

@@ -26,19 +26,23 @@ export default function PlansPage() {
   const [editPlan, setEditPlan] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get('type') || '';
+  const statusFilter = searchParams.get('status') || '';
 
   const fetchPlans = useCallback(async () => {
     setLoading(true);
     try {
       const params = typeFilter ? `?type=${typeFilter}` : '';
       const { data } = await API.get(`/plans${params}`);
-      setPlans(data.plans);
+      const filteredPlans = statusFilter
+        ? data.plans.filter((plan) => plan.status === statusFilter)
+        : data.plans;
+      setPlans(filteredPlans);
     } catch {
       toast.error('Failed to load plans');
     } finally {
       setLoading(false);
     }
-  }, [typeFilter]);
+  }, [typeFilter, statusFilter]);
 
   useEffect(() => {
     fetchPlans();
@@ -103,9 +107,11 @@ export default function PlansPage() {
           <span>📋</span>
           <h3>No plans yet</h3>
           <p>
-            {typeFilter
-              ? `No ${typeFilter} plans found. Create one!`
-              : 'Create your first plan to get started.'}
+            {statusFilter
+              ? `No ${statusFilter} plans found. Create one!`
+              : typeFilter
+                ? `No ${typeFilter} plans found. Create one!`
+                : 'Create your first plan to get started.'}
           </p>
           <button className="btn btn--primary" onClick={() => setModalOpen(true)}>
             + Create your first plan
